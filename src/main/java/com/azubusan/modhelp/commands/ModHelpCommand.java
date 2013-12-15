@@ -14,7 +14,6 @@ import com.azubusan.modhelp.commands.modhelp.BanCommand;
 import com.azubusan.modhelp.commands.modhelp.FreezeCommand;
 import com.azubusan.modhelp.commands.modhelp.KickCommand;
 import com.azubusan.modhelp.commands.modhelp.KillCommand;
-import com.azubusan.modhelp.commands.modhelp.MuteCommand;
 import com.azubusan.modhelp.commands.modhelp.UnbanCommand;
 import com.azubusan.modhelp.commands.modhelp.WarnCommand;
 
@@ -35,7 +34,6 @@ public class ModHelpCommand implements CommandExecutor {
 		subCommands.put("freeze", new FreezeCommand(plugin));
 		subCommands.put("kill", new KillCommand(plugin));
 		subCommands.put("kick", new KickCommand(plugin));
-		subCommands.put("mute", new MuteCommand(plugin));
 		subCommands.put("warn", new WarnCommand(plugin));
 		subCommands.put("unban", new UnbanCommand(plugin));
 	}
