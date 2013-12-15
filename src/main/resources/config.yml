@@ -5,5 +5,5 @@
 #~                                                   ~#
 #######################################################
 
-#This is the option for the DevLoginListener, set to false if you do not want the login broadcast
-devloginlistener: true
+#There is literally nothing in here right now due to the fact that I switched to properties files
+#~Azubu

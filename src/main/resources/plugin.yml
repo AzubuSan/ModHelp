@@ -20,7 +20,6 @@ permissions:
             modhelp.commands.mute: true
             modhelp.commands.warn: true
             modhelp.commands.kill: true
-            modhelp.commands.tempban: true
             modhelp.commands.unban: true
             modhelp.commands.kick: true
             modhelp.commands.freeze: true
@@ -38,9 +37,6 @@ permissions:
         default: op
     modhelp.commands.kill:
         description: Allows killing of players
-        default: op
-    modhelp.commands.tempban:
-        description: Allows tempbanning of players
         default: op
     modhelp.commands.unban:
         description: Allows unbanning of players

@@ -15,7 +15,6 @@ import com.azubusan.modhelp.commands.modhelp.FreezeCommand;
 import com.azubusan.modhelp.commands.modhelp.KickCommand;
 import com.azubusan.modhelp.commands.modhelp.KillCommand;
 import com.azubusan.modhelp.commands.modhelp.MuteCommand;
-import com.azubusan.modhelp.commands.modhelp.TempBanCommand;
 import com.azubusan.modhelp.commands.modhelp.UnbanCommand;
 import com.azubusan.modhelp.commands.modhelp.WarnCommand;
 
@@ -32,7 +31,6 @@ public class ModHelpCommand implements CommandExecutor {
 	private Map<String, IModHelpCommand> subCommands = new HashMap<>();
 
 	public ModHelpCommand(ModHelp plugin) {
-		subCommands.put("tempban", new TempBanCommand(plugin));
 		subCommands.put("ban", new BanCommand(plugin));
 		subCommands.put("freeze", new FreezeCommand(plugin));
 		subCommands.put("kill", new KillCommand(plugin));

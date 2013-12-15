@@ -2,12 +2,7 @@ package com.azubusan.modhelp;
 
 import java.io.File;
 
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerLoginEvent;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.azubusan.modhelp.commands.ModHelpCommand;
@@ -30,10 +25,6 @@ public class ModHelp extends JavaPlugin implements Listener {
 
 	@Override
 	public void onEnable() {
-
-		// Register events
-		PluginManager pm = Bukkit.getServer().getPluginManager();
-		pm.registerEvents(this, this);
 
 		// External Class Events
 		new IsBannedListener().RegisterEvents(this); // Ban Listener
@@ -90,18 +81,6 @@ public class ModHelp extends JavaPlugin implements Listener {
 	}
 
 	// Event to check if the plugin developer logs on, can be disabled via the
-	// config or via command: /mh devloginlistener
-	@EventHandler
-	public void onDeveloperLogin(PlayerLoginEvent event) {
-		if (this.getConfig().getBoolean("devloginlistener") == true) {
-			if (event.getPlayer().getName() == "AzubuSan") {
-				for (Player ops : Bukkit.getServer().getOnlinePlayers()) {
-					if (ops.isOp() == true) {
-						ops.sendMessage("§2[§6ModHelp§2] "
-								+ "§9The plugin Developer has logged on!");
-					}
-				}
-			}
-		}
-	}
+	// config
+	
 }

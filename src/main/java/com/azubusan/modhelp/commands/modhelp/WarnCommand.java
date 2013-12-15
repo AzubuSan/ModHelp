@@ -42,6 +42,8 @@ public class WarnCommand implements IModHelpCommand {
 			Player target = Bukkit.getServer().getPlayer(targetName);
 			File warnedProps = new File("plugins/ModHelp/WPP/ModHelp_"
 					+ targetName.toString() + ".PROPERTIES");
+			final File bannedProps = new File("plugins/ModHelp/BPP/ModHelp_"
+					+ targetName.toString() + ".PROPERTIES");
 			Properties Warnprops = new Properties();
 
 			// String builder //
@@ -60,7 +62,8 @@ public class WarnCommand implements IModHelpCommand {
 				return true;
 			}
 
-			if (!WarnedOne.contains(targetName)) {
+			if (!NotWarned.contains(targetName)) {
+				NotWarned.add(targetName);
 				WarnedOne.add(targetName);
 				sender.sendMessage("§6Warned Player §c" + targetName
 						+ " §6For " + sb.toString().replaceAll("&", "§"));
@@ -100,8 +103,7 @@ public class WarnCommand implements IModHelpCommand {
 					Warnprops.store(out, "Warned Player | Warn Count");
 					sender.sendMessage("§6Player §c" + targetName
 							+ "'s §6Warn Count Is Now §c"
-							+ Warnprops.getProperty(targetName)
-							+ " §6And Has Been Kicked");
+							+ Warnprops.getProperty(targetName));
 					target.sendMessage("§6Your Warn Count Is Now §c"
 							+ Warnprops.getProperty(targetName));
 					out.close();
@@ -141,25 +143,36 @@ public class WarnCommand implements IModHelpCommand {
 
 			if (WarnedThree.contains(targetName)) {
 				WarnedThree.remove(targetName);
+				NotWarned.remove(targetName);
 				sender.sendMessage("§6Warned Player §c" + targetName
 						+ " §6For " + sb.toString().replaceAll("&", "§"));
 				target.sendMessage("§6You Have Been Warned For §c"
 						+ sb.toString().replaceAll("&", "§"));
 				try {
+					bannedProps.createNewFile();
+					FileInputStream fiss = new FileInputStream(bannedProps);
+					FileOutputStream outt = new FileOutputStream(bannedProps);
 					FileInputStream fis = new FileInputStream(warnedProps);
 					FileOutputStream out = new FileOutputStream(warnedProps);
 					Warnprops.load(fis);
 					Warnprops.setProperty(targetName, "3");
-					Warnprops.store(out, "Warned Player | Warn Count");
 					sender.sendMessage("§6Player §c" + targetName
 							+ "'s §6Warn Count Is Now §c"
 							+ Warnprops.getProperty(targetName)
 							+ " §6And Has Been Kicked");
 					target.kickPlayer("§6Your Warn Count Is Now §c"
 							+ Warnprops.getProperty(targetName)
-							+ " §6And Have Been Kicked");
+							+ " §6And Have Been Banned");
+					Warnprops.store(out, "Warned Player | Warn Count");
+					Warnprops.load(fiss);
+					Warnprops.setProperty(targetName, "§6Your Warn Count Is Now §c3 §6And You Have Been Banned");
+					Warnprops.store(outt, "Banned User | Reason");
+					target.setBanned(true);
+					outt.close();
+					fiss.close();
 					out.close();
 					fis.close();
+
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}

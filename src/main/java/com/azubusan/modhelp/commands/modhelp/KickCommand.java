@@ -41,7 +41,7 @@ public class KickCommand implements IModHelpCommand {
 				return true;
 			}
 			sender.sendMessage("§6Player " + "§c" + targetName + " §6kicked for " + sb.toString().replaceAll("&", "§"));
-			target.kickPlayer("You were kicked for " + sb.toString().replaceAll("&", "§") + " §0by " + sender.getName());
+			target.kickPlayer("§6You were kicked for " + sb.toString().replaceAll("&", "§") + " §6by §c" + sender.getName());
 			return true;
 			
 		}
