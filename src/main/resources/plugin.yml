@@ -1,0 +1,53 @@
+name: ${project.name}
+main: ${project.groupId}.modhelp.${project.name}
+version: ${project.version}
+description: ${project.description}
+
+commands:
+    modhelp:
+        description: The base command for all ModHelp commands
+        permissions: modhelp.commands.modhelp
+        usage: /modhelp
+        aliases: [mh,modh,mhelp]
+
+permissions:
+    modhelp.commands.modhelp.*:
+        description: Allows use of all Event Helper commands
+        default: op
+        children:
+            modhelp.commands.ban: true
+            modhelp.commands.banoffline: true
+            modhelp.commands.mute: true
+            modhelp.commands.warn: true
+            modhelp.commands.kill: true
+            modhelp.commands.tempban: true
+            modhelp.commands.unban: true
+            modhelp.commands.kick: true
+            modhelp.commands.freeze: true
+    modhelp.commands.ban:
+        description: Allows banning of players
+        default: op
+    modhelp.commands.banoffline:
+        description: Allows banning of offline players
+        default: op
+    modhelp.commands.mute: 
+        description: Allows muting of offline players
+        default: op
+    modhelp.commands.warn:
+        description: Allows warning of players
+        default: op
+    modhelp.commands.kill:
+        description: Allows killing of players
+        default: op
+    modhelp.commands.tempban:
+        description: Allows tempbanning of players
+        default: op
+    modhelp.commands.unban:
+        description: Allows unbanning of players
+        default: op
+    modhelp.commands.kick:
+        description: Allows kicking of players
+        default: op
+    modhelp.commands.freeze:
+        description: Allows freezing of players
+        default: op

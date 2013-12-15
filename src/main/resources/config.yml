@@ -1,0 +1,9 @@
+#######################################################
+#~                                                   ~#
+#~         Default ModHelp Configuration File        ~#
+#~             Version 1.0.0 by AzubuSan             ~#
+#~                                                   ~#
+#######################################################
+
+#This is the option for the DevLoginListener, set to false if you do not want the login broadcast
+devloginlistener: true
