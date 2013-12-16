@@ -159,7 +159,7 @@ public class WarnCommand implements IModHelpCommand {
 					sender.sendMessage("§6Player §c" + targetName
 							+ "'s §6Warn Count Is Now §c"
 							+ Warnprops.getProperty(targetName)
-							+ " §6And Has Been Kicked");
+							+ " §6And Has Been Banned");
 					target.kickPlayer("§6Your Warn Count Is Now §c"
 							+ Warnprops.getProperty(targetName)
 							+ " §6And Have Been Banned");
